@@ -10,7 +10,7 @@ import tldextract
 from collections import Counter
 
 # Change this variable for the amount of website you want to crawl
-max_crawl = 10
+max_crawl = 1000
 
 # create a browsermob server instance
 server = Server('browsermob-proxy\\bin\\browsermob-proxy')

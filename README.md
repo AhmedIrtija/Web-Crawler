@@ -49,4 +49,6 @@ This Project is one of the project from my Computer Networks class which utilize
     - This will print all the info about the packages being set to root ip's and tmz.com
 
 * ### Part 2 
-    - 
+    - Open the code and set the max_crawl variable to the amount of website you want to crawl and analyze
+    - Next, open the terminal and run ```python webCrawler.py```
+    - Wait until all the sites have been crawled to receive the analysis on top cookies and third-party domain
