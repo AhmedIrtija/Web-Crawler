@@ -38,3 +38,10 @@ This Project is one of the project from my Computer Networks class which utilize
         - After collecting the HAR files, you will conduct the following analysis:
             - Report the number of requests made to third-party domains when visiting each site. A third-party domain is a domain that does not have the same second-level domain (SLD) as the site you are visiting. For example, when you are visiting google.com, ads.google.com is not a third-party since it has the same second-level domain (google) as google.com. However, doubleclick.net is considered a third-party to google.com. Identify the top-10 most commonly seen third-parties across all sites.
             - Identify the third-party cookies present while visiting each site. Third-party cookies are those cookies that were accessed (set or read) by third-party domains. Identify the top-10 most commonly seen third-party cookies across all sites and describe their intended functionality by referencing [Cookiepedia](https://cookiepedia.co.uk/).
+
+
+
+## How to run this code
+
+* ### Part 1
+    - Open the terminal in the same directory as 
