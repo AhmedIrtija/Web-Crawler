@@ -22,3 +22,69 @@ root_records.append("199.7.83.42")
 root_records.append("202.12.27.33")
 
 
+def unpack(response):
+    offset = 12
+    IPServers = []
+    ipAdd = []
+
+    _, _, questions, answer, authority, additional = struct.unpack('!6H', response[:12])
+    #unpack the headers to use them 
+    for _ in range(questions):
+            while response[offset] != 0:
+                offset += 1
+
+            offset += 5
+    
+    for _ in range(answer):
+        if response[offset] >= 192: 
+            offset += 2  
+        else:
+            while response[offset] != 0:
+                offset += 1
+            offset += 1  
+
+        type_, _, _, data_length = struct.unpack('!HHIH', response[offset:offset + 10])
+        offset += 10  
+
+        if type_ == 1:  
+            address = socket.inet_ntoa(response[offset:offset + data_length])
+            ipAdd.append(address)
+
+        elif type_ == 28:  
+            address = socket.inet_ntop(socket.AF_INET6, response[offset:offset + data_length])
+            ipAdd.append(address)
+
+        offset += data_length  
+
+    for _ in range(authority):
+        if response[offset] >= 192: 
+            offset += 2
+
+        else:
+            while response[offset] != 0:
+                offset += 1
+            offset += 1
+        offset += 10  
+        data_length = struct.unpack('!H', response[offset-2:offset])[0]
+        offset += data_length  
+    
+    for _ in range(additional):
+        if response[offset] >= 192: 
+            offset += 2
+        else:
+            while response[offset] != 0:
+                offset += 1
+            offset += 1
+
+        type_, _, _, data_length = struct.unpack('!HHIH', response[offset:offset+10])
+        offset += 10
+        if type_ == 1:  
+            address = socket.inet_ntoa(response[offset:offset+4])
+            offset += 4
+            IPServers.append(address)
+        else:
+            offset += data_length
+
+    return ipAdd, IPServers
+
+
