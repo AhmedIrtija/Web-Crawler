@@ -44,4 +44,9 @@ This Project is one of the project from my Computer Networks class which utilize
 ## How to run this code
 
 * ### Part 1
-    - Open the terminal in the same directory as 
+    - Open the terminal in the same directory as dnsReader.py 
+    - Then just run ```python dnsReader.py```
+    - This will print all the info about the packages being set to root ip's and tmz.com
+
+* ### Part 2 
+    - 
